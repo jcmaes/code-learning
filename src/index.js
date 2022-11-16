@@ -1,18 +1,12 @@
+// Variable let
+let name = 'jean';
 
-// Declaration
-var firstName;
-console.log(firstName); // Undefined
+console.log(name);
 
-// Initialization
+// Variable const
+const user = {
+    name: 'paul'
+};
+user.name = 'robert';
 
-firstName = 1;
-
-console.log(firstName);
-
-var myvar1, myvar2, myvar3;
-
-myvar1 = 123;
-myvar2 = 456;
-myvar3 = 789;
-
-console.log(myvar1, myvar2, myvar3);
+console.log(user);
