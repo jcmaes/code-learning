@@ -1,32 +1,26 @@
-/* Operator */
+/* Coercion */
 
-// Assignment
-let a = 1;
+let a = 1 + "hello";
 console.log(a);
 
-let aa = 1;
-aa += 2; // a = a + 2;
-console.log(aa);
-
-// Addition
-let b = 2 + 2;
-let c = "I am " + "a test";
+let b = 1 + "1";
 console.log(b);
-console.log(c);
 
-// Multiplication
-let d = 2 + 2 * 6 / 2;
-console.log(d);
+let c = 1;
+let d = "2";
+console.log(c + d);
 
-// Increment
 let e = 1;
-e++; // same than ++e;
-console.log(e);
+let f = true; // true = 1;
+console.log(e + f);
 
-// Modulo
-let f = 12 % 5;
-console.log(f);
+let g = "test";
+let h = false; // false = 0;
+console.log(g + h);
 
-// Grouping
-let g = (2 + 2) * 6 / 2;
-console.log(g);
+let i = 1;
+let j = undefined;
+console.log(i + j);
+console.log(Number(undefined)); // NaN
+
+console.log(String(undefined)); // undefined
