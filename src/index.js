@@ -1,38 +1,21 @@
-/* Comparisons */
+/* Reference and Value */
 
-// Assignment
-let a = 1, b = 2;
-console.log(a == b); //false
+let a = 1;
+let b = a;
 
-// Equality
-let c = 1, d = 1;
-console.log(c == true); //true
+console.log({a, b}); // a = 1; b = 1;
 
-console.log(true == "true"); // true
-console.log(true === "true"); // false
+b += 3;
+console.log({a, b}); // a = 1; b = 4;
 
-// Greater / Less with coercion
-console.log(1 < 2 < 3); // true
-console.log(3 < 2 < 1); // true
-// -> 3 < 2 = false
-// -> false coercion = 0
-// -> 0 < 1 = true
+let c = { d: 1};
+let e = c;
+console.log(c); // c = 1;
+console.log(e); // e = 1;
 
-// Logical NOT
-let e = 1, f = 1;
-console.log(!e); // false
-// !true = false
-// !false = true
-// !!true = true
+let f = { g: 1};
+let h = f;
 
-// Logical AND
-let g = 1, h = 1;
-if (g && h) {
-    console.log("ok");
-}
-
-// Logical OR
-let i = 1, j = 0;
-if (i || j) {
-    console.log("nok");
-}
+h.g = 2; // Copy by reference
+console.log(f); // f = 2;
+console.log(h); // h = 2;
