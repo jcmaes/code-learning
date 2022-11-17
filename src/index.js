@@ -1,21 +1,37 @@
-/* Reference and Value */
+/* Conditional statements */
 
-let a = 1;
-let b = a;
+const conditionalBoolean = 0; // 0 = false && 1 = true
+console.log(!!conditionalBoolean);
 
-console.log({a, b}); // a = 1; b = 1;
+// If
+if (conditionalBoolean) {
+    console.log("boolean");
+}
 
-b += 3;
-console.log({a, b}); // a = 1; b = 4;
 
-let c = { d: 1};
-let e = c;
-console.log(c); // c = 1;
-console.log(e); // e = 1;
+const conditionalString = "something"; // empty string = false && string with character = true
+console.log(!!conditionalString);
 
-let f = { g: 1};
-let h = f;
+// Else
+if (conditionalString) {
+    console.log("string");
+} else {
+    console.log("Write something");
+}
 
-h.g = 2; // Copy by reference
-console.log(f); // f = 2;
-console.log(h); // h = 2;
+
+const name = "Jean";
+// Elseif
+if (name === "Jean") {
+    console.log("Hello Jean");
+} else if (name === "Paul") {
+    console.log("Hello Paul");
+} else {
+    console.log("Hello");
+}
+
+
+// Write without curly bracket
+if (name === "Jean") console.log("Hello Jean");
+else if (name === "Paul") console.log("Hello Paul");
+else console.log("Hello");
