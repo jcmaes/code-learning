@@ -1,26 +1,38 @@
-/* Coercion */
+/* Comparisons */
 
-let a = 1 + "hello";
-console.log(a);
+// Assignment
+let a = 1, b = 2;
+console.log(a == b); //false
 
-let b = 1 + "1";
-console.log(b);
+// Equality
+let c = 1, d = 1;
+console.log(c == true); //true
 
-let c = 1;
-let d = "2";
-console.log(c + d);
+console.log(true == "true"); // true
+console.log(true === "true"); // false
 
-let e = 1;
-let f = true; // true = 1;
-console.log(e + f);
+// Greater / Less with coercion
+console.log(1 < 2 < 3); // true
+console.log(3 < 2 < 1); // true
+// -> 3 < 2 = false
+// -> false coercion = 0
+// -> 0 < 1 = true
 
-let g = "test";
-let h = false; // false = 0;
-console.log(g + h);
+// Logical NOT
+let e = 1, f = 1;
+console.log(!e); // false
+// !true = false
+// !false = true
+// !!true = true
 
-let i = 1;
-let j = undefined;
-console.log(i + j);
-console.log(Number(undefined)); // NaN
+// Logical AND
+let g = 1, h = 1;
+if (g && h) {
+    console.log("ok");
+}
 
-console.log(String(undefined)); // undefined
+// Logical OR
+let i = 1, j = 0;
+if (i || j) {
+    console.log("nok");
+}
