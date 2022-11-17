@@ -1,49 +1,32 @@
-/* Object primitive */
+/* Operator */
 
-// String
-const name = "jean";
-console.log(typeof name);
+// Assignment
+let a = 1;
+console.log(a);
 
-// Number
-const age = 18;
-console.log(typeof age);
+let aa = 1;
+aa += 2; // a = a + 2;
+console.log(aa);
 
-// Null
-const hobbies = null;
-console.log(typeof hobbies);
+// Addition
+let b = 2 + 2;
+let c = "I am " + "a test";
+console.log(b);
+console.log(c);
 
-// Undefined
-let actions;
-console.log(typeof actions);
+// Multiplication
+let d = 2 + 2 * 6 / 2;
+console.log(d);
 
-// Symbol
-let sym = Symbol();
-console.log(typeof sym);
+// Increment
+let e = 1;
+e++; // same than ++e;
+console.log(e);
 
-// Boolean
-let active = true;
-console.log(typeof active);
+// Modulo
+let f = 12 % 5;
+console.log(f);
 
-
-/* Object literal */
-
-// Object
-const cities = {
-    name: "Paris",
-    country: "France"
-}
-console.log(typeof cities);
-
-// Function
-const greetings = function() {
-    console.log("Hello");
-}
-console.log(typeof greetings);
-
-// Date
-const today = new Date();
-console.log(typeof today);
-
-// Array
-const arr = [1, 2, 3];
-console.log(typeof arr);
+// Grouping
+let g = (2 + 2) * 6 / 2;
+console.log(g);
