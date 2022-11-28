@@ -1,25 +1,12 @@
-/* Conditional statements */
+/* Loops and iteration: While */
+let i = 55;
 
-const wheel = 4;
-let vehicleType;
-
-switch (wheel) {
-    // Simple case
-    case 2 : {
-        vehicleType = "moto";
-        break;
-    }
-    // Multiple case
-    case "4" :
-    case 4 : {
-        vehicleType = "auto";
-        break;
-    }
-    // Default case
-    default : {
-        vehicleType = "truck";
-        break;
-    }
+do {
+    console.log(i);
+    i ++;
+} while ( i < 10) {
+    console.log(i);
+    i++;
 }
 
-console.log(vehicleType);
+console.log("out");
