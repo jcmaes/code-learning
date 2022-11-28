@@ -1,9 +1,25 @@
 /* Conditional statements */
 
-const age = 15;
-// const isMajor = age >= 18 ? true : false;
-const isMajor = age >= 18; // Simplified
-console.log(isMajor);
+const wheel = 4;
+let vehicleType;
 
-const status = age >= 18 ? "major" : age <2 ? "baby" : "minor"; // Not recommended.
-console.log(status);
+switch (wheel) {
+    // Simple case
+    case 2 : {
+        vehicleType = "moto";
+        break;
+    }
+    // Multiple case
+    case "4" :
+    case 4 : {
+        vehicleType = "auto";
+        break;
+    }
+    // Default case
+    default : {
+        vehicleType = "truck";
+        break;
+    }
+}
+
+console.log(vehicleType);
