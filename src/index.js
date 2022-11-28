@@ -1,11 +1,17 @@
 /* Numbers */
 
-const dec = 15.45;
-console.log(dec);
+console.log(Number("44")); // 44
+console.log(Number("44px")); // NaN
+console.log(+"43"); // 43
+console.log(1 + "43"); // 143 -> string
+console.log(1 + +"43"); // 44
 
-console.log(0.1 + 0.2); // 0.30000000004
+console.log(parseInt("45")); //45
+console.log(parseInt("45px")); // 45
 
-console.log((0.1 * 10 + 0.2 * 10) / 10); // 0.3
+console.log(parseInt("11", 2)); // 3
+console.log(parseInt("11.55")); // 11
 
-const price = 1e6; //1000000
-console.log(price);
+console.log(parseFloat("11.55")); // 11.55
+console.log(parseFloat("12")); // 12
+
