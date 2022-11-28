@@ -1,37 +1,9 @@
 /* Conditional statements */
 
-const conditionalBoolean = 0; // 0 = false && 1 = true
-console.log(!!conditionalBoolean);
+const age = 15;
+// const isMajor = age >= 18 ? true : false;
+const isMajor = age >= 18; // Simplified
+console.log(isMajor);
 
-// If
-if (conditionalBoolean) {
-    console.log("boolean");
-}
-
-
-const conditionalString = "something"; // empty string = false && string with character = true
-console.log(!!conditionalString);
-
-// Else
-if (conditionalString) {
-    console.log("string");
-} else {
-    console.log("Write something");
-}
-
-
-const name = "Jean";
-// Elseif
-if (name === "Jean") {
-    console.log("Hello Jean");
-} else if (name === "Paul") {
-    console.log("Hello Paul");
-} else {
-    console.log("Hello");
-}
-
-
-// Write without curly bracket
-if (name === "Jean") console.log("Hello Jean");
-else if (name === "Paul") console.log("Hello Paul");
-else console.log("Hello");
+const status = age >= 18 ? "major" : age <2 ? "baby" : "minor"; // Not recommended.
+console.log(status);
