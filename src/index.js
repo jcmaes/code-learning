@@ -1,25 +1,13 @@
-/* Conditional statements */
+/* Loops and iteration: For */
 
-const wheel = 4;
-let vehicleType;
-
-switch (wheel) {
-    // Simple case
-    case 2 : {
-        vehicleType = "moto";
+for (let i = 0; i < 3; i++) {
+    if (i === 1) {
         break;
     }
-    // Multiple case
-    case "4" :
-    case 4 : {
-        vehicleType = "auto";
-        break;
+    if (i === 2) {
+        continue;
     }
-    // Default case
-    default : {
-        vehicleType = "truck";
-        break;
-    }
+    console.log(i);
 }
 
-console.log(vehicleType);
+console.log("out");
