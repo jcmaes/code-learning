@@ -1,12 +1,7 @@
-/* Loops and iteration: While */
-let i = 55;
+/* Numbers */
 
-do {
-    console.log(i);
-    i ++;
-} while ( i < 10) {
-    console.log(i);
-    i++;
-}
+const nyNumber = 45;
 
-console.log("out");
+console.log(nyNumber); //45
+console.log(Number('test')); // NaN
+console.log(new Number(10)); // PrimitiveValue : 10
