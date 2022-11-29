@@ -1,19 +1,6 @@
-/* String */
+/* String literals */
 
-const a = "sun";
-console.log(a);
-
-const b = String("Moon");
-console.log(b);
-
-const c = new String("Earth");
+const a = "one";
+const b = "two";
+const c = "I\'m a string ${a}";
 console.log(c);
-
-const d = "astro: 'sun'";
-console.log(d);
-
-const e = "astro: \"sun\"";
-console.log(e);
-
-const f = "astro: " + a;
-console.log(f);
