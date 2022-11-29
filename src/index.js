@@ -1,17 +1,36 @@
-/* The index and length properties */
+/* Methods available on strings */
 
-const a = "earth";
+const a = "Sun";
+console.log(a);
 
-console.log(a[0]); // e
-console.log(a[1]); // a
-console.log(a[2]); // r
-console.log(a[3]); // t
-console.log(a[4]); // h
-console.log(a[5]); // undefined
+const b = a.charAt(0);
+console.log(b); // S
 
-console.log(a.length); // 5
+const c = "I\'m the sun";
+const d = c.endsWith('sun');
+console.log(d); // true
 
-console.log(a[a.length - 1]); // h
+const e = c.startsWith('sun');
+console.log(e); // false
 
-const b = new String("earth");
-console.log(b);
+const f = c.indexOf('sun');
+console.log(f); // 8
+
+const g = c.indexOf('earth');
+console.log(g); // -1
+
+const h = c.replace('sun', 'moon');
+console.log(h); // I'm the moon
+
+const i = c.search('sun');
+console.log(i); // 8
+
+const j = c.slice(2, -1);
+console.log(j); // m the su
+
+const k = c.trim();
+console.log(k); // I'm the sun
+
+const l = "sun, earth, moon";
+const m = l.split(",");
+console.log(m);
