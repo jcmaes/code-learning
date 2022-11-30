@@ -1,29 +1,19 @@
 /* Object properties */
 
+const population = 7e7;
+const satellite = 'Moon';
+const temperature = {
+    min: -70,
+    max: 60
+};
+const pop = "population";
 const earth = {
-    population: 7e7,
-    satellite: 'Moon',
-    temperature : {
-        min: -70,
-        max: 60
-    },
+    [pop]: population,
+    satellite,
+    temperature,
     isOld: false,
-    getTemperature: function() {
-        console.log("15");
-    },
-    getNewTemperature() {
-        console.log("20");
-    }
 };
 
-const copy = earth;
-copy.isOld = true;
-
-const prop = "temperature";
+earth[pop] = population;
 
 console.log(earth);
-console.log(earth.population);
-console.log(earth['satellite']);
-console.log(earth[prop]);
-earth.getTemperature();
-earth.getNewTemperature();
