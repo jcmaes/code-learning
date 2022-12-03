@@ -1,28 +1,22 @@
-/* Delete or discard properties */
+/* Merging objects */
 
-const earth = {
+const earth1 = {
     population: 7e7,
-    satellite: "Moon",
+    satellite: "Moon"
+};
+
+const earth2 = {
     temperature: {
         min: -70,
         max: 60
     },
-    isOld: false,
+    isOld: false
 };
 
-// Add properties
-const living = "living";
-earth.living = true;
-earth["living"] = true;
-earth[living] = true;
+// Example 1
+const earth = Object.assign({}, earth1, earth2);
+console.log(earth === earth1);
 
-// Delete properties
-delete earth.satellite;
-
-// Set properties to null
-earth.population = null;
-
-// Decomposition
-const { population, ...copyEarth } = earth; // Copy earth without population
-
-console.log(earth);
+// Example 2
+const newEarth = { ...earth1, ...earth2 };
+console.log(newEarth);
