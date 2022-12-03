@@ -1,19 +1,18 @@
 /* Object properties */
 
-const population = 7e7;
-const satellite = 'Moon';
-const temperature = {
-    min: -70,
-    max: 60
-};
-const pop = "population";
+const population = 50;
+
 const earth = {
-    [pop]: population,
-    satellite,
-    temperature,
+    population: 7e7,
+    satellite: "Moon",
+    temperature: {
+        min: -70,
+        max: 60
+    },
     isOld: false,
 };
 
-earth[pop] = population;
+const { population: populationEarth, satellite, temperature, ...rest } = earth;
 
-console.log(earth);
+console.log(population, populationEarth, satellite, temperature);
+console.log(rest);
