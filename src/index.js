@@ -1,11 +1,22 @@
-/* JSON format */
+/* Copy object */
 
-const obj = {
-    firstname: 'Jean',
-    lastname: 'Louis',
-    age: 15
+const a = {
+    name: 'Toto',
+    foo: {
+        bar: 'zoo'
+    }
 };
 
-console.log(JSON.stringify(obj));
+// Examples shallow
+const b = Object.assign({}, a);
+const c = { ...a };
+b.name = "Tata";
 
-console.log(JSON.parse('{"firstname": "Jean", "lastname": "Louis", "age": 15}'));
+console.log(a);
+console.log(b);
+console.log(c);
+
+// Example deep
+const d = JSON.parse(JSON.stringify(a));
+
+console.log(d);
