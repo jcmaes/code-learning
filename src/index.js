@@ -1,22 +1,11 @@
-/* Iterating on objects */
+/* JSON format */
 
 const obj = {
-    a: 'one',
-    b: 'two',
-    c: 'three'
+    firstname: 'Jean',
+    lastname: 'Louis',
+    age: 15
 };
 
-// For ... in
-for (prop in obj) {
-    console.log(prop);
-    console.log(obj[prop]);
-}
+console.log(JSON.stringify(obj));
 
-// Object keys
-console.log(Object.keys(obj));
-
-// Object values
-console.log(Object.values(obj));
-
-// Object entries
-console.log(Object.entries(obj));
+console.log(JSON.parse('{"firstname": "Jean", "lastname": "Louis", "age": 15}'));
