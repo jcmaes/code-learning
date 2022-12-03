@@ -1,8 +1,22 @@
-/* Compare objects */
+/* Iterating on objects */
 
-const a = {};
-const b = {};
-const c = b;
+const obj = {
+    a: 'one',
+    b: 'two',
+    c: 'three'
+};
 
-console.log(a === b); // false
-console.log(b === c); // true
+// For ... in
+for (prop in obj) {
+    console.log(prop);
+    console.log(obj[prop]);
+}
+
+// Object keys
+console.log(Object.keys(obj));
+
+// Object values
+console.log(Object.values(obj));
+
+// Object entries
+console.log(Object.entries(obj));
