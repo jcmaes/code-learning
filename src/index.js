@@ -1,4 +1,4 @@
-/* Test the existence and value of a property */
+/* Delete or discard properties */
 
 const earth = {
     population: 7e7,
@@ -10,23 +10,19 @@ const earth = {
     isOld: false,
 };
 
-// Test 1
-if (earth.population) {
-    console.log("Ok !");
-} else {
-    console.log("Nok !");
-}
+// Add properties
+const living = "living";
+earth.living = true;
+earth["living"] = true;
+earth[living] = true;
 
-// Test 2
-if ("population" in earth) {
-    console.log("Ok !");
-} else {
-    console.log("Nok !");
-}
+// Delete properties
+delete earth.satellite;
 
-// Test 3
-if (earth.hasOwnProperty("test")) {
-    console.log("Ok !");
-} else {
-    console.log("Nok !");
-}
+// Set properties to null
+earth.population = null;
+
+// Decomposition
+const { population, ...copyEarth } = earth; // Copy earth without population
+
+console.log(earth);
