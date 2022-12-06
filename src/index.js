@@ -1,22 +1,23 @@
-/* Copy object */
+/* Function expressions and their declaration */
 
-const a = {
-    name: 'Toto',
-    foo: {
-        bar: 'zoo'
-    }
-};
+// Declaration of a function
+function func() {
+    console.log("func exec");
+}
+func();
 
-// Examples shallow
-const b = Object.assign({}, a);
-const c = { ...a };
-b.name = "Tata";
+// Expression of a function
+const fn = function func2() {
+    console.log("func2 exec");
+}
 
-console.log(a);
-console.log(b);
-console.log(c);
+console.log(fn.name); // func2
+fn();
 
-// Example deep
-const d = JSON.parse(JSON.stringify(a));
+// Anonymous function
+const fn2 = function () {
+    console.log("func2 exec");
+}
 
-console.log(d);
+console.log(fn2.name); // fn2
+fn2();
