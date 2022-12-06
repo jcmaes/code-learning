@@ -1,23 +1,11 @@
-/* Function expressions and their declaration */
+/* Parameters, arguments and default settings */
 
 // Declaration of a function
-function func() {
-    console.log("func exec");
+function func(param = "default") {
+    // param = param || "default"; // Old way
+    if (param) {
+        console.log(param.toUpperCase());
+    }
 }
-func();
-
-// Expression of a function
-const fn = function func2() {
-    console.log("func2 exec");
-}
-
-console.log(fn.name); // func2
-fn();
-
-// Anonymous function
-const fn2 = function () {
-    console.log("func2 exec");
-}
-
-console.log(fn2.name); // fn2
-fn2();
+func("param"); // PARAM
+func(); // DEFAULT
