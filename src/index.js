@@ -1,25 +1,15 @@
-/* Object arguments and use of the Rest operator */
+/* Return value of the functions */
 
-// Example 1
-function add() {
-    let total = 0;
-    for (let i = 0;i< arguments.length;i++) {
-        total += arguments[i];
-    }
-    console.log(total);
-}
-
-add(1, 2, 3, 4);
-
-// Example 2
 function operation(operator, ...numbers) {
-    let newTotal = 0;
+    let total = 0;
     if (operator === "+") {
         for (let i = 0;i< numbers.length;i++) {
-            newTotal += numbers[i];
+            total += numbers[i];
         }
-        console.log(newTotal);
+        console.log(total);
     }
+    return total;
 }
 
-operation("+", 1, 2, 3, 4);
+const total = operation("+", 1, 2, 3, 4);
+console.log(total);
