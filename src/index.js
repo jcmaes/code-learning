@@ -1,15 +1,18 @@
-/* Return value of the functions */
+/* Lexical environment and execution context */
 
-function operation(operator, ...numbers) {
-    let total = 0;
-    if (operator === "+") {
-        for (let i = 0;i< numbers.length;i++) {
-            total += numbers[i];
-        }
-        console.log(total);
-    }
-    return total;
+// Example 1
+function a() {}
+function b() {
+    a();
 }
+b();
 
-const total = operation("+", 1, 2, 3, 4);
-console.log(total);
+// Example 2
+function c() {
+    let text;
+}
+function d() {
+    c();
+    let foo;
+}
+d();
