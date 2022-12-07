@@ -1,59 +1,32 @@
 /* Arrow functions */
 
 // Example 1
-const a = (param) => {
-    console.log(param);
+const cb = () => {
+    console.log("cb");
 }
 
-a(); // Undefined
-a("foo"); // foo
+const b = () => {
+    console.log("b");
+}
+
+function fn(a, cb) {
+    console.log("a : ", a);
+    cb();
+}
+
+fn("This is a ", cb); // a : This is a // cb
+fn("This is a ", b); // a : This is a // b
 
 // Example 2
-const b = (c, d) => c + d;
-console.log(b(1, 2)); // 3
-
-// Example 3
-const e = (f, g) => ({
-    f,
-    g,
-    total: f + g
-});
-console.log(e(2, 3)); // 5
-
-// Example 4
-const h = () => {
-    console.log(this); // {} => global object
-};
-
-h();
-
-const i = {
-    foo: "bar"
+const d = (p1, p2) => {
+    console.log("cb", p1, p2);
 }
 
-h.call(i); // {} => global object
-
-// Example 5
-/* Arrow functions */
-const j = {
-    foo: "bar",
-    fn: () => {
-        console.log(this); // {} => global object
-    }
+function fn2(a, cb) {
+    console.log("a : ", a);
+    const p1 = 1;
+    const p2 = 2;
+    cb(p1, p2);
 }
 
-j.fn(); // {} => global object
-
-/* Not arrow functions */
-const k = {
-    foo: "bar",
-    fn() {
-        const fn2 = () => {
-            console.log(this); // {} => global object
-        };
-        // console.log(this); // {} => global object
-        fn2();
-    }
-}
-
-k.fn(); // {foo: "bar", fn: f} => global object
+fn2("This is a ", d); // a : This is a // cb 1 2
