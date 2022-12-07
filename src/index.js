@@ -1,3 +1,9 @@
-/* Namespace and IIFE */
+/* Keyword this */
 
-(function(){})();
+import "./test";
+
+function func() {
+    console.log(this);
+}
+
+func();
