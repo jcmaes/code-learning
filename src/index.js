@@ -1,36 +1,32 @@
-/* Set or link this */
+/* Arrow functions */
 
-const a = {
-    foo: "not bar"
-};
-
-const b = {
-    foo: "bar",
-    fn() {
-        function c() {
-            console.log(this);
-        }
-        c.call(this); // foo: "bar"
-        c.call(a); // foo: "not bar"
-    }
-};
-b.fn();
-
-const d = {
-    name: "Jean",
-    lastName: "Louis"
-};
-
-function hello(lang) {
-    if (lang === "fr") {
-        console.log(`bonjour: ${ this.name + this.lastName}`);
-    } else {
-        console.log(`hi: ${ this.name + this.lastName}`);
-    }
+// Example 1
+const cb = () => {
+    console.log("cb");
 }
 
-hello.call(d, "fr"); // bonjour: JeanLouis
-hello.apply(d, ["fr"]); // bonjour: JeanLouis
+const b = () => {
+    console.log("b");
+}
 
-const e = hello.bind(d);
-e("fr"); // bonjour: JeanLouis
+function fn(a, cb) {
+    console.log("a : ", a);
+    cb();
+}
+
+fn("This is a ", cb); // a : This is a // cb
+fn("This is a ", b); // a : This is a // b
+
+// Example 2
+const d = (p1, p2) => {
+    console.log("cb", p1, p2);
+}
+
+function fn2(a, cb) {
+    console.log("a : ", a);
+    const p1 = 1;
+    const p2 = 2;
+    cb(p1, p2);
+}
+
+fn2("This is a ", d); // a : This is a // cb 1 2
