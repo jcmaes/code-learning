@@ -1,32 +1,23 @@
-/* Closures */
+/* Introduction to array  */
 
-function powerBy(power) {
-    return function(number) {
-        return number ** power
-    }
-}
+// Notation literal
+const array = [1, "two", {foo: "bar"}, [1, 2, 3]];
+console.log(array);
 
-// Example 1
-powerBy(2)(3);
-console.log(powerBy(2)(3)); // 9
+// Function
+const array2 = Array(1, 2, 3);
+console.log(array2);
 
-// Example 2
-const powerBy2 = powerBy(2);
-console.log(powerBy2(3));
+// Constructor
+const array3 = new Array(2, 3, 4);
+console.log(array3);
 
-// Example 3
-const a = () => {
-    let array = [];
-    for(var i = 0; i < 3; i++) {
-        array.push(function () {
-            console.log(i);
-        })
-    }
-    return array;
-}
+// Static methode
+const array4 = Array.from("Hello");
+console.log(array4);
 
-const table = a();
+const array5 = Array.from([10, 20 ,30], number => number + 1);
+console.log(array5);
 
-table[0](); // 3
-table[1](); // 3
-table[2](); // 3
+// Check if element is an array
+console.log(Array.isArray(array))
