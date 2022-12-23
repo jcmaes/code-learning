@@ -1,32 +1,32 @@
-/* Arrow functions */
+/* Closures */
+
+function powerBy(power) {
+    return function(number) {
+        return number ** power
+    }
+}
 
 // Example 1
-const cb = () => {
-    console.log("cb");
-}
-
-const b = () => {
-    console.log("b");
-}
-
-function fn(a, cb) {
-    console.log("a : ", a);
-    cb();
-}
-
-fn("This is a ", cb); // a : This is a // cb
-fn("This is a ", b); // a : This is a // b
+powerBy(2)(3);
+console.log(powerBy(2)(3)); // 9
 
 // Example 2
-const d = (p1, p2) => {
-    console.log("cb", p1, p2);
+const powerBy2 = powerBy(2);
+console.log(powerBy2(3));
+
+// Example 3
+const a = () => {
+    let array = [];
+    for(var i = 0; i < 3; i++) {
+        array.push(function () {
+            console.log(i);
+        })
+    }
+    return array;
 }
 
-function fn2(a, cb) {
-    console.log("a : ", a);
-    const p1 = 1;
-    const p2 = 2;
-    cb(p1, p2);
-}
+const table = a();
 
-fn2("This is a ", d); // a : This is a // cb 1 2
+table[0](); // 3
+table[1](); // 3
+table[2](); // 3
