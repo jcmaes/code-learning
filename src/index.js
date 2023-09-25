@@ -1,9 +1,7 @@
-/* Access array properties  */
+/* Nesting array */
 
-const array = ["earth", "sun", "moon"];
-console.log(array[0]); // earth
-console.log(array[array.length - 1]); // moon
-
-// Reset an array
-array.length = 0;
-console.log(array); // length: 0
+const array = [["earth", "moon"], "sun", ];
+console.log(array[0]); // "earth, moon"
+console.log(array); // Array(2), "sun"
+console.log(array[0][0]); // "earth"
+console.log(array[0][array[0].length - 1]); // "moon"
