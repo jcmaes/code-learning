@@ -1,21 +1,42 @@
-/* Merging arrays */
+/* Sort an array */
 
-// Superficial way (shadow copy)
-const a = [1, 2, 3];
-const b = [4, 5, 6];
-const c = [7, 8, 9];
+const a = [2, 1, 3];
 
-// Wrong way
-const merge1 = a + b;
+a.sort();
+a.sort((param1, param2) => param1.localeCompare(param2));
+a.sort((param1, param2) => param1.localeCompare(param2) * -1);
 
-console.log(merge1); // [1, 2, 34, 5, 6];
+console.log(a); // [1, 2, 3];
 
-// Methode Concat
-const merge2 = a.concat(b).concat(c);
+const b = [2, 25, 100]; // "2", "25", "100";
 
-console.log(merge2); // [1, 2, 3, 4, 5, 6, 7, 8, 9];
+b.sort();
 
-// Methode Spread
-const merge3 = [...a, ...b, ...c]
+console.log(b); // [100,  2, 25];
 
-console.log(merge3); // [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const c = ["banana", "Orange", "apple"];
+
+c.sort();
+
+console.log(c); // ["Orange",  "apple", "banana"];
+
+const d = [
+    {
+        quantity: 10
+    },
+    {
+        quantity: 15
+    },
+    {
+        quantity: 5
+    }
+]
+
+d.sort((param1, param2) => param1.quantity - param2.quantity);
+
+console.log(d); // [{quantity: 5}, {quantity: 10}, {quantity: 15}];
+
+const e = [1, 2, 3]
+
+e.reverse();
+console.log(e); // [3, 2, 1];
