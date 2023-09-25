@@ -1,32 +1,25 @@
-/* Add elements to an array */
+/* Delete elements in an array */
 
-let array = [1, 2, 3];
+const array = [1, 2, 3];
 
-// Mutate element
-array[0] = "a";
+// Delete element at the beginning
+array.shift();
 
-console.log(array[0]); // a
+console.log(array) // [2, 3]
 
-// Add elements (number) to the beginning
-array.unshift(-1, 0);
+// Delete element at the end
+array.pop();
 
-console.log(array); // [-1, 0, "a", 2, 3]
+console.log(array) // [2]
 
-// Add elements (number) to the end
-array.push(4, 5);
+// Methode Rest
+const array2 = [1, 2, 3, 4, 5];
 
-console.log(array); // [-1, 0, "a", 2, 3, 4, 5]
+const [, ...newArray2] = array2;
 
-// Spread operator
-array = [...array, 6];
+console.log(array2); // [2, 3, 4, 5]
 
-console.log(array); // [-1, 0, "a", 2, 3, 4, 5, 6]
+// Function Splice
+array2.splice(2, 2);
 
-array = [-2, ...array];
-
-console.log(array); // [-2, -1, 0, "a", 2, 3, 4, 5, 6]
-
-// Function splice
-array.splice(1, 0, -1.5);
-
-console.log(array); // [-2, -1.5, -1, 0, "a", 2, 3, 4, 5, 6]
+console.log(array2); // [1, 2, 5]
