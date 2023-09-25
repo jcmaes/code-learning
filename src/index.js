@@ -1,52 +1,32 @@
-/* Array decomposition and rest operator */
+/* Add elements to an array */
 
-const array = [1, 2, 3, 4, [5, 6]];
+let array = [1, 2, 3];
 
-const a = array[0];
-const b = array[1];
+// Mutate element
+array[0] = "a";
 
-console.log(a); // 1
-console.log(b); // 2
+console.log(array[0]); // a
 
-const [c, d] = array; // 3, 4
+// Add elements (number) to the beginning
+array.unshift(-1, 0);
 
-// Const rest
-const [newA, ...rest] = array; // 2, 3, 4
+console.log(array); // [-1, 0, "a", 2, 3]
 
+// Add elements (number) to the end
+array.push(4, 5);
 
-const e = array[3];
-const f = array[4];
+console.log(array); // [-1, 0, "a", 2, 3, 4, 5]
 
-const [[f1, f2], ]= array;
-console.log(e); // 4
-console.log(f1); // 5
-console.log(f2); // 6
+// Spread operator
+array = [...array, 6];
 
-//Skip the first element
-const array2 = [1, 2, 3];
+console.log(array); // [-1, 0, "a", 2, 3, 4, 5, 6]
 
-const [, ...newArray2] = array2;
-console.log(array2); // [2, 3]
+array = [-2, ...array];
 
-// Inverse value between const
-// Old school way
-let g = 'g';
-let h = 'h';
+console.log(array); // [-2, -1, 0, "a", 2, 3, 4, 5, 6]
 
-// Temporary
-const tmp = g;
+// Function splice
+array.splice(1, 0, -1.5);
 
-g = h;
-h = tmp;
-
-console.log("g : ", g); // h
-console.log("h : ", h); // g
-
-// New school way
-let i = 'i';
-let j = 'j';
-
-[i, j] = [j, i];
-
-console.log("i : ", i); // j
-console.log("j : ", j); // i
+console.log(array); // [-2, -1.5, -1, 0, "a", 2, 3, 4, 5, 6]
