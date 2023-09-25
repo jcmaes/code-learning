@@ -1,25 +1,26 @@
-/* Delete elements in an array */
+/* Find elements in an array */
 
-const array = [1, 2, 3];
+const array = ["one", "two", "three"];
 
-// Delete element at the beginning
-array.shift();
+console.log(array.indexOf("two")) // 1
+console.log(array[array.indexOf("two")]) // two
 
-console.log(array) // [2, 3]
+console.log(array.includes("two")) // true
 
-// Delete element at the end
-array.pop();
+const array2 = [
+    {
+        name: "earth"
+    },
+    {
+        name: "moon"
+    },
+    {
+        name: "sun"
+    }
+];
 
-console.log(array) // [2]
+const index = array2.findIndex(elem => elem.name === "sun");
+console.log(index); // 2
 
-// Methode Rest
-const array2 = [1, 2, 3, 4, 5];
-
-const [, ...newArray2] = array2;
-
-console.log(array2); // [2, 3, 4, 5]
-
-// Function Splice
-array2.splice(2, 2);
-
-console.log(array2); // [1, 2, 5]
+const elem = array2.find(elem => elem.name === "sun");
+console.log(elem); // {name: "sun"}
