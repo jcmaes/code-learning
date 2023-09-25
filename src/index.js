@@ -1,4 +1,4 @@
-/* Nesting array */
+/* Introduction to array  */
 
 const array = [["earth", "moon"], "sun" ];
 console.log(array[0]); // "earth, moon"
