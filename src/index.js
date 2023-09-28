@@ -1,18 +1,56 @@
-/* Iterating on an array */
+/* Introduction to functional programming */
 
-const array = [1, 2, 3];
+const array1 = ['ONE', 'TWO', 'THREE'];
 
-// Methode for
-for(let i = 0; i < array.length; i++ ) {
-    console.log(array[i]); // [1, 2, 3];
-}
+// Old way
+const a = [];
 
-// Methode for of
-for(let iteration of array) {
-    console.log(iteration);
-}
-
-// Methode forEach
-array.forEach((value, index) => {
-    console.log(`value: ${value}, index: ${index}`);
+array1.forEach((value) => {
+    a.push(value.toLowerCase());
 });
+
+console.log(a); // ['one', 'two', 'three']
+
+// New way
+// Example 1
+const array2 = ['ONE', 'TWO', 'THREE'];
+
+const b = array2.map((value) => value.toLowerCase());
+
+console.log(b); // ['one', 'two', 'three']
+
+// Example 2
+const array3 = [{
+    quantity: 5,
+    name: 'shoes'
+}, {
+    quantity: 10,
+    name: 'hats'
+}];
+
+const c = array3.map((value) => value.name);
+
+console.log(c); // ['shoes', 'hats']
+
+// Methode filter
+const array4 = [{
+    quantity: 5,
+    name: 'PANTS'
+}, {
+    quantity: 10,
+    name: 'GLOVES'
+}, {
+    quantity: 15,
+    name: 'SHIRTS'
+}];
+
+const d = array4
+    .filter((item) => item.quantity >=10)
+    .map(item => {
+        return {
+            ...item,
+            name: item.name.toLowerCase()
+        }
+    });
+
+console.log(d); // {0: {"quantity": 10, "name": "gloves"} 1: {"quantity": 15, "name": "shirts"}
