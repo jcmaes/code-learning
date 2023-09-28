@@ -1,56 +1,30 @@
-/* Introduction to functional programming */
+/* Other functional programming methods */
 
-const array1 = ['ONE', 'TWO', 'THREE'];
-
-// Old way
-const a = [];
-
-array1.forEach((value) => {
-    a.push(value.toLowerCase());
-});
-
-console.log(a); // ['one', 'two', 'three']
-
-// New way
-// Example 1
-const array2 = ['ONE', 'TWO', 'THREE'];
-
-const b = array2.map((value) => value.toLowerCase());
-
-console.log(b); // ['one', 'two', 'three']
-
-// Example 2
-const array3 = [{
-    quantity: 5,
-    name: 'shoes'
+// Methode reduce
+const cart = [{
+    quantity: 1,
+    name: 'PANTS',
+    price: 50
 }, {
-    quantity: 10,
-    name: 'hats'
+    quantity: 1,
+    name: 'GLOVES',
+    price: 20
+}, {
+    quantity: 2,
+    name: 'SHIRTS',
+    price: 70
 }];
 
-const c = array3.map((value) => value.name);
+const total = cart
 
-console.log(c); // ['shoes', 'hats']
+    // Old long way
+    // .reduce((acc, value, index) => {
+    //     console.log(`acc: ${acc}, value: ${value}, index: ${index}`);
+    //     acc += value.price * value.quantity;
+    //     return acc;
+    // }, 0);
 
-// Methode filter
-const array4 = [{
-    quantity: 5,
-    name: 'PANTS'
-}, {
-    quantity: 10,
-    name: 'GLOVES'
-}, {
-    quantity: 15,
-    name: 'SHIRTS'
-}];
+    // New short way
+    .reduce((acc, value) => (acc += value.price * value.quantity), 0);
 
-const d = array4
-    .filter((item) => item.quantity >=10)
-    .map(item => {
-        return {
-            ...item,
-            name: item.name.toLowerCase()
-        }
-    });
-
-console.log(d); // {0: {"quantity": 10, "name": "gloves"} 1: {"quantity": 15, "name": "shirts"}
+console.log(total); // 210
