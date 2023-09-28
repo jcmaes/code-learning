@@ -1,42 +1,18 @@
-/* Sort an array */
+/* Iterating on an array */
 
-const a = [2, 1, 3];
+const array = [1, 2, 3];
 
-a.sort();
-a.sort((param1, param2) => param1.localeCompare(param2));
-a.sort((param1, param2) => param1.localeCompare(param2) * -1);
+// Methode for
+for(let i = 0; i < array.length; i++ ) {
+    console.log(array[i]); // [1, 2, 3];
+}
 
-console.log(a); // [1, 2, 3];
+// Methode for of
+for(let iteration of array) {
+    console.log(iteration);
+}
 
-const b = [2, 25, 100]; // "2", "25", "100";
-
-b.sort();
-
-console.log(b); // [100,  2, 25];
-
-const c = ["banana", "Orange", "apple"];
-
-c.sort();
-
-console.log(c); // ["Orange",  "apple", "banana"];
-
-const d = [
-    {
-        quantity: 10
-    },
-    {
-        quantity: 15
-    },
-    {
-        quantity: 5
-    }
-]
-
-d.sort((param1, param2) => param1.quantity - param2.quantity);
-
-console.log(d); // [{quantity: 5}, {quantity: 10}, {quantity: 15}];
-
-const e = [1, 2, 3]
-
-e.reverse();
-console.log(e); // [3, 2, 1];
+// Methode forEach
+array.forEach((value, index) => {
+    console.log(`value: ${value}, index: ${index}`);
+});
