@@ -1,18 +1,25 @@
-/* Select DOM elements */
+/* Edit DOM elements */
 
-console.log(document);
-console.log(window);
+const p = document.querySelector('p');
+const img = document.querySelector('img');
+const section = document.querySelector('section');
+const a = document.querySelector('a');
+const input = document.querySelector('input');
 
-// Old way
-const elem1 = document.getElementById('foo');
-console.log(elem1) // <img>
+// console.log(p.childNodes);
 
-const elem2 = document.getElementsByClassName('class-test');
-console.log(elem2) // <p>
+// Technical methode
+p.childNodes[0].nodeValue = "HelloWorld";
 
-// New way
-const elem3 = document.querySelector('section')
-console.log(elem3) // <section>
+// Generic methode
+// p.innerTEXT = "<strong>Hello</strong>";
+p.innerHTML += " <strong>Hello</strong>";
 
-const elem4 = document.querySelectorAll('img')
-console.log(elem4) // <img>
+// Image
+// console.log(img.attributes);
+
+img.src = "https://static1.howtogeekimages.com/wordpress/wp-content/uploads/csit/2019/07/9608c9ff.png";
+img.alt = "Welcome"
+
+// Link
+a.href = "https://www.google.com/";
