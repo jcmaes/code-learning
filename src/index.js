@@ -1,4 +1,4 @@
-/* CSS with Webpack */
+/* Style and class modification */
 
 import './style.css';
 
@@ -8,23 +8,36 @@ const section = document.querySelector('section');
 const a = document.querySelector('a');
 const input = document.querySelector('input');
 
-input.focus();
+// Example 1: Add style in JS
+// Simple example
+section.style.width = "200px";
 
-setTimeout( () => {
-    input.blur();
-}, 1000);
+console.log(section.style); // CSSStyleDeclaration
 
-input.type = 'date';
+// Example param with coma is wright in CamelCase
+section.style.backgroundColor = "lightgray";
 
-input.value = '123';
+console.log(window.getComputedStyle(section)); // CSSStyleDeclaration
 
-input.placeholder = 'Hello';
+// Example 2: Add class
+console.log(section.className);
+console.log(section.getAttribute('class'));
 
-input.disabled = true;
+section.className = "red text-primary";
 
-input.minLength = 5;
-input.maxLength = 15;
+console.log(section.classList); // DOMTokenList(2)
 
-input.max = '50';
+section.classList.add("red");
+section.classList.remove("test");
 
-console.log(input.validity);
+setTimeout(() => {
+    section.classList.toggle("red");
+    console.log(section.classList.contains('red')); // false
+}, 2000);
+
+setTimeout(() => {
+    section.classList.toggle("red");
+    console.log(section.classList.contains('red')); // true;
+}, 4000);
+
+
