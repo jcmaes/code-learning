@@ -1,4 +1,6 @@
-/* Attributes and properties */
+/* CSS with Webpack */
+
+import './style.css';
 
 const p = document.querySelector('p');
 const img = document.querySelector('img');
