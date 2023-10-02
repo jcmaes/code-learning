@@ -6,8 +6,23 @@ const section = document.querySelector('section');
 const a = document.querySelector('a');
 const input = document.querySelector('input');
 
-// console.log(img.setAttribute('data', 'Hello'));
-// img.removeAttribute('data');
-console.log(img.getAttribute('data'));
+input.focus();
 
-console.log(input.dataset.username);
+setTimeout( () => {
+    input.blur();
+}, 1000);
+
+input.type = 'date';
+
+input.value = '123';
+
+input.placeholder = 'Hello';
+
+input.disabled = true;
+
+input.minLength = 5;
+input.maxLength = 15;
+
+input.max = '50';
+
+console.log(input.validity);
