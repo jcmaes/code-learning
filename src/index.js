@@ -1,43 +1,23 @@
-/* Style and class modification */
+/* Create nodes */
 
 import './style.css';
 
-const p = document.querySelector('p');
-const img = document.querySelector('img');
-const section = document.querySelector('section');
-const a = document.querySelector('a');
-const input = document.querySelector('input');
+const app = document.querySelector('#app');
 
-// Example 1: Add style in JS
-// Simple example
-section.style.width = "200px";
+const section = document.createElement("section");
 
-console.log(section.style); // CSSStyleDeclaration
+const image = document.createElement("img");
+const imageSrc = document.createAttribute("src");
+imageSrc.value = "https://picsum.photos/seed/picsum/400/300";
 
-// Example param with coma is wright in CamelCase
-section.style.backgroundColor = "lightgray";
+const paragraph = document.createElement("p");
+const paragraphClass = document.createAttribute("class");
+paragraphClass.value = "text-primary";
+const paragraphText = document.createTextNode("I'm a paragraph");
 
-console.log(window.getComputedStyle(section)); // CSSStyleDeclaration
+const link = document.createElement("a");
+const linkHref = document.createAttribute("href");
+linkHref.value = "https://dyma.fr";
+const linkText = document.createTextNode("Dyma");
 
-// Example 2: Add class
-console.log(section.className);
-console.log(section.getAttribute('class'));
-
-section.className = "red text-primary";
-
-console.log(section.classList); // DOMTokenList(2)
-
-section.classList.add("red");
-section.classList.remove("test");
-
-setTimeout(() => {
-    section.classList.toggle("red");
-    console.log(section.classList.contains('red')); // false
-}, 2000);
-
-setTimeout(() => {
-    section.classList.toggle("red");
-    console.log(section.classList.contains('red')); // true;
-}, 4000);
-
-
+const comment = document.createComment("I am a comment");
