@@ -1,8 +1,20 @@
-/* Todos display */
+/* Add todo */
 
 import './style.css';
 
 const list = document.querySelector("ul");
+const form = document.querySelector("form");
+const input = document.querySelector("form > input");
+
+console.log(form, input);
+
+form.addEventListener('submit', event => {
+    event.preventDefault();
+    const value = input.value;
+    input.value = '';
+    addTodo(value);
+    displayTodo();
+});
 
 const todos = [
     {
@@ -32,5 +44,12 @@ const createTodoElement = (todo, index) => {
     `;
     return listItem;
 };
+
+const addTodo = (text) => {
+    todo.push({
+       text,
+       done: false
+    });
+}
 
 displayTodo();
