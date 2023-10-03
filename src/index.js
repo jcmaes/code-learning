@@ -1,17 +1,15 @@
-/* Delete and replace nodes */
+/* Using on* DOM properties */
 
 import './style.css';
 
-const p = document.querySelector(".text-primary");
-console.log(p);
+const square = document.querySelector("div");
 
-// Methode remove
-p.parentElement.removeChild(p);
-p.remove();
+square.onmouseover = () => {
+    square.style.backgroundColor = 'red';
+};
 
-const span = document.createElement('span');
-span.innerHTML = "<h1>Hello</h1>";
+// square.onmouseover = null;
 
-// Methode replace
-p.parentElement.replaceChild(span ,p);
-p.replaceWith(span);
+square.onmouseout = () => {
+    square.style.backgroundColor = '#eee';
+};
