@@ -1,21 +1,18 @@
-/* Delete an event handler and trigger an event */
+/* Bubbling and capturing */
 
 import './style.css';
 
 const square = document.querySelector("div");
-const button = document.querySelector("button");
+const span = document.querySelector("span");
 
-function becomeRed() {
-    square.style.backgroundColor = "red";
-}
-
-square.addEventListener('mouseover', becomeRed);
-
-square.addEventListener('mouseout', () => {
-    square.style.backgroundColor = "#eee";
-    square.removeEventListener('mouseover', becomeRed);
+square.addEventListener('click', () => {
+    console.log('click on square');
+}, {
+    capture: true
 });
 
-button.addEventListener('click', () => {
-    square.dispatchEvent(new Event('mouseover'));
+span.addEventListener('click', () => {
+    console.log('click on span');
+}, {
+    capture: true
 });
