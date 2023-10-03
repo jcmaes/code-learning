@@ -2,17 +2,14 @@
 
 import './style.css';
 
-const square = document.querySelector("div");
-const span = document.querySelector("span");
+const form = document.querySelector("form");
+const input = document.querySelector("input");
 
-square.addEventListener('click', () => {
-    console.log('click on square');
-}, {
-    capture: true
+form.addEventListener('click', (event) => {
+    console.log('click form');
 });
 
-span.addEventListener('click', () => {
-    console.log('click on span');
-}, {
-    capture: true
+input.addEventListener('click', (event) => {
+    console.log('click input');
+    event.stopPropagation();
 });
