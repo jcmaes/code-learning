@@ -1,4 +1,4 @@
-/* Bubbling and capturing */
+/* Prevent default behavior and event object in detail */
 
 import './style.css';
 
