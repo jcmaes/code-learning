@@ -54,6 +54,11 @@ li .todo.done {
     background-color: #333;
 }
 
+li input {
+    flex: 1;
+    margin-right: 16px;
+}
+
 form {
     display: flex;
     margin-bottom: 24px;
