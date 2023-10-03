@@ -1,7 +1,13 @@
-.red {
-    background-color: red;
+body {
+    min-height: 100dvh;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.text-primary {
-    color: blue;
+div {
+    width: 200px;
+    height: 200px;
+    background-color: #eee;
 }
