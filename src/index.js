@@ -1,23 +1,19 @@
-/* Introduction to asynchronous and timers */
+/* Promises */
 
-// Timeout
-const timeoutId = setTimeout(() => {
-    console.log('timer done');
-}, 3000);
+// Example 1
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("promise ok !");
+        reject("promise nok !");
+    }, 2000);
+});
 
-console.log(timeoutId);
+promise
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
-clearTimeout(timeoutId);
-
-// Interval
-let index = 0;
-const intervalId = setInterval(() => {
-    console.log('interval done');
-    index++;
-    if (index === 3) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-
-console.log(intervalId);
-
+console.log("I am ok !");
