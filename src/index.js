@@ -1,118 +1,23 @@
-/* Edit todo */
+/* Introduction to asynchronous and timers */
 
-import './style.css';
+// Timeout
+const timeoutId = setTimeout(() => {
+    console.log('timer done');
+}, 3000);
 
-const list = document.querySelector("ul");
-const form = document.querySelector("form");
-const input = document.querySelector("form > input");
+console.log(timeoutId);
 
-// console.log(form, input);
+clearTimeout(timeoutId);
 
-form.addEventListener('submit', event => {
-    event.preventDefault();
-    const value = input.value;
-    input.value = '';
-    addTodo(value);
-});
-
-const todos = [
-    {
-        text: 'i am a todo list',
-        done: false,
-        editMode: false
-    },
-    {
-        text: 'do JavaScript',
-        done: true,
-        editMode: false
+// Interval
+let index = 0;
+const intervalId = setInterval(() => {
+    console.log('interval done');
+    index++;
+    if (index === 3) {
+        clearInterval(intervalId);
     }
-];
+}, 1000);
 
-const displayTodo = () => {
-    const todosNode = todos.map((todo, index) => {
-        if (todo.editMode) {
-            return createTodoEditElement(todo, index);
-        } else {
-            return createTodoElement(todo, index);
-        }
-    });
-    list.innerHTML = '';
-    list.append(...todosNode);
-};
+console.log(intervalId);
 
-const createTodoElement = (todo, index) => {
-    const listItem = document.createElement('li');
-    const buttonDelete = document.createElement('button');
-    buttonDelete.innerText = 'Delete';
-    const buttonEdit = document.createElement('button');
-    buttonEdit.innerText = 'Edit';
-    buttonDelete.addEventListener('click', event => {
-        event.stopPropagation();
-        deleteTodo(index);
-    });
-    buttonEdit.addEventListener('click', event => {
-        event.stopPropagation();
-        toggleEditMode(index);
-    });
-    listItem.innerHTML = `
-        <span class="todo ${todo.done ? 'done': ''}"></span>
-        <p>${todo.text}</p>
-    `;
-    listItem.addEventListener('click', event => {
-        toggleTodo(index);
-    });
-    listItem.append(buttonEdit, buttonDelete);
-    return listItem;
-};
-
-const createTodoEditElement = (todo, index) => {
-    const listItem = document.createElement('li');
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.value = todo.text;
-    const buttonSave = document.createElement('button');
-    buttonSave.innerHTML = 'Save';
-    const buttonCancel = document.createElement('button');
-    buttonCancel.innerHTML = 'Cancel';
-    buttonCancel.addEventListener('click', event => {
-        event.stopPropagation();
-        toggleEditMode(index);
-    });
-    buttonSave.addEventListener('click', event => {
-        event.stopPropagation();
-        editTodo(index, input);
-    })
-    listItem.append(input, buttonCancel, buttonSave);
-    return listItem;
-};
-
-const addTodo = text => {
-    todos.push({
-       text,
-       done: false
-    });
-    displayTodo();
-};
-
-const deleteTodo = index => {
-    todos.splice(index, 1);
-    displayTodo();
-};
-
-const toggleTodo = index => {
-    todos[index].done = !todos[index].done;
-    displayTodo();
-};
-
-const toggleEditMode = index => {
-    todos[index].editMode = !todos[index].editMode;
-    displayTodo();
-};
-
-const editTodo = (index, input) => {
-    todos[index].text = input.value;
-    todos[index].editMode = false;
-    displayTodo();
-}
-
-displayTodo();
