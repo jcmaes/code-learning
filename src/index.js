@@ -1,4 +1,4 @@
-/* CORS */
+/* Advanced fetch query options */
 
 const user = {
     name: 'tintin',
