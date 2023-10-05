@@ -1,3 +1,1 @@
-/* Introduction to the blog project */
-
-import('./style.scss');
+import './style.scss';
