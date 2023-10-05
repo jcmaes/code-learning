@@ -1,43 +1,25 @@
-/* First HTTP fetch request */
+/* Make a POST request */
 
-const promise = fetch('https://jsonplaceholder.typicode.com/users');
+const user = {
+    name: 'tintin',
+    email: 'tintin@gmail.com'
+}
 
-// console.log(promise);
+const promise = fetch('https://jsonplaceholder.typicode.com/users', {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
 
-// JSON format
-// Example 1
-promise
-    .then(response => {
-        console.log(response)
-        const promiseUsers = response.json();
-        promiseUsers.then( users => {
-            console.log(users);
-        });
-    })
-    .catch(error => console.log(error));
-
-// Example 2
-promise
-    .then(async response => {
+promise.then(async response => {
+    try {
         console.log(response);
-        try {
-            const users = await response.json();
-            console.log(users);
-        } catch (e) {
-            console.log(e);
-        }
-    })
-    .catch(error => console.log(error));
-
-// TEXT format
-promise
-    .then(async response => {
-        console.log(response);
-        try {
-            const users = await response.text();
-            console.log(JSON.parse(users));
-        } catch (e) {
-            console.log(e);
-        }
-    })
-    .catch(error => console.log(error));
+        const body = await response.json();
+        console.log(body);
+    } catch (e) {
+        console.log(e);
+    }
+    console.log(response);
+})
