@@ -1,29 +1,27 @@
-/* Asynchronous functions with async / await */
+/* Event loop */
 
 // Example 1
-async function func() {
-    // return 1;
-    return new Promise((resolve, reject) => resolve(1));
-}
+console.log("start");
 
-// console.log(func()); // Promise
+setTimeout(() => console.log("timout 2000"), 2000);
 
-func()
-    .then(result => console.log(result))
-    .catch(error => console.log(error));
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(), 4000);
+})
 
-// Example 2
-const p1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("resolve p1");
-        reject("reject p1");
-    }, 1000);
+promise.then(() => {
+    console.log("promise 4000");
 });
-async function func2() {
-    try {
-        const value = await p1;
-        console.log(value);
-    } catch (e) {
-        console.log("error: ", e); // error: reject p1
-    }
-}
+
+Promise.resolve().then(() => {
+    console.log("promise 0");
+});
+
+setTimeout(() => {
+    console.log("timeout 0");
+}, 0);
+
+console.log("end");
+
+// Result
+// start - end - promise 0 - timout 0
