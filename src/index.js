@@ -1,27 +1,43 @@
-/* Event loop */
+/* First HTTP fetch request */
 
+const promise = fetch('https://jsonplaceholder.typicode.com/users');
+
+// console.log(promise);
+
+// JSON format
 // Example 1
-console.log("start");
+promise
+    .then(response => {
+        console.log(response)
+        const promiseUsers = response.json();
+        promiseUsers.then( users => {
+            console.log(users);
+        });
+    })
+    .catch(error => console.log(error));
 
-setTimeout(() => console.log("timout 2000"), 2000);
+// Example 2
+promise
+    .then(async response => {
+        console.log(response);
+        try {
+            const users = await response.json();
+            console.log(users);
+        } catch (e) {
+            console.log(e);
+        }
+    })
+    .catch(error => console.log(error));
 
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve(), 4000);
-})
-
-promise.then(() => {
-    console.log("promise 4000");
-});
-
-Promise.resolve().then(() => {
-    console.log("promise 0");
-});
-
-setTimeout(() => {
-    console.log("timeout 0");
-}, 0);
-
-console.log("end");
-
-// Result
-// start - end - promise 0 - timout 0
+// TEXT format
+promise
+    .then(async response => {
+        console.log(response);
+        try {
+            const users = await response.text();
+            console.log(JSON.parse(users));
+        } catch (e) {
+            console.log(e);
+        }
+    })
+    .catch(error => console.log(error));
