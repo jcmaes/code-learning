@@ -1,19 +1,24 @@
-/* Cancel current queries */
+/* FormData objects */
 
-const controller = new AbortController();
+const form = document.querySelector('form');
 
-console.log(controller);
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-controller.signal.addEventListener('abort', (event) => {
-    console.log(event);
+    const formData = new FormData(form);
+
+    console.log(formData);
+
+    formData.append('name', '123');
+    formData.set('email', 'tintin@gmail.com');
+    console.log(formData.get('email'));
+
+    for ( let pair of formData) {
+        console.log(pair);
+    }
+
+    fetch('/test', {
+        method: 'POST',
+        body: formData
+    })
 });
-
-controller.abort();
-
-const promise = fetch('https://jsonplaceholder.typicode.com/users', {
-    signal: controller.signal
-});
-
-promise
-    .then(response => console.log(response))
-    .catch(e => console.log(e));
