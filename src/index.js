@@ -1,24 +1,8 @@
-/* FormData objects */
+/* Web API URL */
 
-const form = document.querySelector('form');
+const url = new URL('https://wikipedia.fr/napoleon?key1=value1&key2=value2');
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
+url.searchParams.append('key3', 'value3');
+url.searchParams.set('key4', 'tom&jerry');
 
-    const formData = new FormData(form);
-
-    console.log(formData);
-
-    formData.append('name', '123');
-    formData.set('email', 'tintin@gmail.com');
-    console.log(formData.get('email'));
-
-    for ( let pair of formData) {
-        console.log(pair);
-    }
-
-    fetch('/test', {
-        method: 'POST',
-        body: formData
-    })
-});
+console.log(URL.toString());
