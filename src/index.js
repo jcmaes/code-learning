@@ -1,4 +1,4 @@
-/* Make a POST request */
+/* Advanced fetch query options */
 
 const user = {
     name: 'tintin',
