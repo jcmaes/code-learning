@@ -1,25 +1,19 @@
-/* Advanced fetch query options */
+/* Cancel current queries */
 
-const user = {
-    name: 'tintin',
-    email: 'tintin@gmail.com'
-}
+const controller = new AbortController();
 
-const promise = fetch('https://jsonplaceholder.typicode.com/users', {
-    method: 'POST',
-    body: JSON.stringify(user),
-    headers: {
-        'Content-Type': 'application/json'
-    }
+console.log(controller);
+
+controller.signal.addEventListener('abort', (event) => {
+    console.log(event);
 });
 
-promise.then(async response => {
-    try {
-        console.log(response);
-        const body = await response.json();
-        console.log(body);
-    } catch (e) {
-        console.log(e);
-    }
-    console.log(response);
-})
+controller.abort();
+
+const promise = fetch('https://jsonplaceholder.typicode.com/users', {
+    signal: controller.signal
+});
+
+promise
+    .then(response => console.log(response))
+    .catch(e => console.log(e));
