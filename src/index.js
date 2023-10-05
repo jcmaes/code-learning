@@ -1,4 +1,4 @@
-/* Make a POST request */
+/* CORS */
 
 const user = {
     name: 'tintin',
