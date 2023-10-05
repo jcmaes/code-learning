@@ -1,54 +1,43 @@
-/* Chain promises */
+/* Promise methods */
 
-// Example 1
-const promise = new Promise((resolve, reject) => {
-    // resolve("promise ok !");
-    // reject("promise nok !");
+const promise1 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        // resolve("timeout ok !");
-        reject("promise nok !");
+        resolve(1);
+    }, 1000);
+});
+
+const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        // resolve(2);
+        reject(2);
     }, 2000);
 });
 
-promise
-    .then(response => {
-        console.log('then 1:', response); // then 1: timeout ok !
-        throw new Error('error');
-        // return "new value";
-    },
-    // Old school way
-    // Handle errors directly in then
-    error => {
-        console.log("error");
-    })
-    .then(response => {
-        console.log('then 2:', response); // then 2: new value
-        return "another new value";
-    })
-    .catch(error => {
-        console.log('error :', error);
-    })
-    .then(response => {
-        console.log('then 3:', response); // then 3: another new value
-    })
-    .catch(error => {
-        console.log('error 2:', error);
-    });
+const promise3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(3);
+    }, 3000);
+});
 
-// promise.then(response => {
-//     console.log('then 2 :', response)
-// })
+// Method all
+Promise.all([promise1, promise2, promise3])
+    .then ( result => console.log(result)) // [1, 2, 3]
+    .catch( error => console.log(error)); // 2
 
-console.log("I am ok !");
+// Method allSettled
+Promise.allSettled([promise1, promise2, promise3])
+    .then ( result => console.log(result)) // [{...}, {status: rejected}, {...}]
+    .catch( error => console.log(error)); // 2
 
-// Methode finally
-promise
-    .then(response => {
-        console.log("then: ", response);
-    })
-    .catch(error => {
-        console.log("error :", error);
-    })
-    .finally(() => {
-        console.log("in finally");
-    });
+// Method race
+Promise.race([promise1, promise2, promise3])
+    .then ( result => console.log(result)) // 3
+    .catch( error => console.log(error)); // 2
+
+// Method resolve
+Promise.resolve(1)
+    .then(result => console.log(result)); // 1
+
+// Method reject
+Promise.reject(1)
+    .then(error => console.log(error)); // error
