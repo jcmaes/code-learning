@@ -17,8 +17,38 @@
 
 header {
   grid-area: header;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
   padding: 2rem;
   background-color: green;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .header-brand {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      .header-nav {
+        font-size: 1.8rem;
+        padding-inline: 1rem;
+      }
+
+      .active {
+        font-weight: 700;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .content {
@@ -30,5 +60,8 @@ header {
 footer {
   grid-area: footer;
   padding: 2rem;
-  //background-color: lightgray;
+  background-color: var(--dark-gray);
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--divider);
 }
