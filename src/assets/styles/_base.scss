@@ -1,0 +1,60 @@
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  font-size: clamp(var(--min), var(--val), var(--max));
+  margin-bottom: 2em;
+}
+
+h1 {
+  --min: 2em;
+  --val: 5vw;
+  --max: 3em;
+}
+
+h2 {
+  --min: 1.75em;
+  --val: 4vw;
+  --max: 2.5em;
+}
+
+h3 {
+  --min: 1.5em;
+  --val: 3vw;
+  --max: 2em;
+}
+
+h4 {
+  --min: 1.25em;
+  --val: 2vw;
+  --max: 1.5em;
+}
+
+p {
+  --min: 1em;
+  --val: 2.5vw;
+  --max: 1.25em;
+}
+
+ul:not([class]) {
+  list-style: none;
+}
+
+img {
+  max-inline-size: 100%;
+}
+
+a {
+  color: var(--link);
+}
