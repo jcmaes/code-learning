@@ -29,15 +29,21 @@ form.addEventListener('submit', async event => {
     }
 });
 
-const formIsValid = (article) => {
-    if (!article.author || !article.category || !article.content) {
+const formIsValid = article => {
+    if (
+        !article.author ||
+        !article.category ||
+        !article.content ||
+        !article.image ||
+        !article.title
+    ) {
         errors.push('This field is required');
     } else {
         errors = [];
     }
     if (errors.length) {
         let errorHTML = '';
-        errors.forEach((e) => {
+        errors.forEach(e => {
             errorHTML += `<li>${e}</li>`
         });
         errorElement.innerHTML = errorHTML;

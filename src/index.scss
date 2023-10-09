@@ -7,6 +7,9 @@
     max-inline-size: 800px;
     inset-inline: 100%;
     margin: 5rem 0 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 
     .article {
       display: flex;
@@ -35,6 +38,7 @@
 
       &-content {
         max-inline-size: 550px;
+        white-space: pre-line;
       }
 
       &-actions {
