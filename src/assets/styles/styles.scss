@@ -54,6 +54,7 @@ header {
 .content {
   grid-area: content;
   padding: 2rem;
+  background-color: var(--divider);
 }
 
 footer {
