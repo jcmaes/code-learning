@@ -1,3 +1,5 @@
+@import "./assets/styles/media-queries";
+
 .content {
   display: flex;
   justify-content: center;
@@ -15,10 +17,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 1rem 5rem;
+      padding-inline: 5rem;
       background-color: #fff;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
+
+      @include xs {
+        padding: 1rem 2rem;
+      }
 
       img {
         inline-size: 6rem;
