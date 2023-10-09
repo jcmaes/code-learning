@@ -27,20 +27,28 @@
         <form action="">
             <h2 class="title-underline">Add article</h2>
             <div class="form-group">
-                <label for="">Author</label>
+                <label for="author">Author</label>
                 <input type="text" name="author" id="author">
             </div>
             <div class="form-group">
-                <label for="">Category</label>
+                <label for="image">Image</label>
+                <input type="text" name="image" id="image">
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
                 <input type="text" name="category" id="category">
             </div>
             <div class="form-group">
-                <label for="">Article</label>
-                <textarea name="content"></textarea>
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="form-group">
+                <label for="content">Article</label>
+                <textarea name="content" id="content"></textarea>
             </div>
             <ul class="text-error" id="errors"></ul>
             <div class="form-button-wrapper">
-                <button class="btn btn-secondary">cancel</button>
+                <button class="btn btn-secondary">Cancel</button>
                 <button class="btn btn-primary">Save</button>
             </div>
         </form>
