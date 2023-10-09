@@ -1,0 +1,50 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .article-container {
+    max-inline-size: 800px;
+    inset-inline: 100%;
+    margin: 5rem 0 10rem;
+
+    .article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 5rem;
+      background-color: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+
+      img {
+        inline-size: 6rem;
+        block-size: 6rem;
+        margin-block-start: -4rem;
+        border-radius: 50%;
+      }
+
+      h2 {
+        margin-block: 2rem 0;
+      }
+
+      &-author {
+        margin-block-end: 3rem;
+        color: var(--middle-gray);
+      }
+
+      &-content {
+        max-inline-size: 550px;
+      }
+
+      &-actions {
+        inline-size: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 2rem;
+        padding-block: 2rem;
+        border-top: 1px solid var(--divider);
+      }
+    }
+  }
+}
