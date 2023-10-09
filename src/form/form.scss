@@ -4,7 +4,8 @@
   align-items: center;
 
   form {
-    inline-size: 700px;
+    inline-size: 100%;
+    max-inline-size: 700px;
     display: flex;
     flex-direction: column;
     padding: 4rem;
