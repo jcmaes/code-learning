@@ -1,13 +1,17 @@
 const date = new Date();
 
-console.log(date.getDate()); // 12
-console.log(date.getDay()); // 4
-console.log(date.getFullYear()); // 2023
-console.log(date.getHours()); // 20
-console.log(date.getUTCMinutes()); // 59
+/*
+console.log(date); // Thu Oct 12 2023 21:10:07 GMT+0200 (Central European Summer Time)
+console.log(date.toDateString()); // Thu Oct 12 2023
+console.log(date.toTimeString()); // 2021:10:07 GMT+0200 (Central European Summer Time)
+console.log(date.toLocaleDateString()); // 10/12/2023
+console.log(date.toLocaleDateString('fr-FR')); // 12/10/2023
+console.log(date.toLocaleString('fr-FR')); // 12/10/2023 à 21:10:07
+*/
 
-// Increment date
-const date2 = new Date();
-date2.setHours(date2.getHours() + 1);
-
-console.log(date2); // Thu Oct 12 2023 22:02:09 GMT+0200 (Central European Summer Time)
+console.log(date.toLocaleDateString('fr-FR', {
+    weekday: "long",
+    month: "long",
+    day: "2-digit",
+    year: "2-digit"
+})); // jeudi 12 octobre 23
