@@ -1,8 +1,15 @@
-console.log(location);
+console.log(history); // History {}
 
-// location.assign('https://dyma.fr');
-// location.replace('https://dyma.fr');
-// location.reload();
+const backButton = document.querySelector('#back');
+const nextButton = document.querySelector('#next');
 
-// console.log(location.toString()); // http://localhost:4000/
-// console.log(location.href); // http://localhost:4000/
+backButton.addEventListener('click', () => {
+    history.back();
+});
+
+nextButton.addEventListener('click', () => {
+    history.forward()
+});
+
+// history.go(5); // = .forward x5
+// history.go(-5); // = .back x5
