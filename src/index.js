@@ -1,17 +1,17 @@
-const date = new Date();
+// console.log(window.location); // Location {}
+// console.log(document.location); // Location {}
+console.log(location); // Location {}
 
-/*
-console.log(date); // Thu Oct 12 2023 21:10:07 GMT+0200 (Central European Summer Time)
-console.log(date.toDateString()); // Thu Oct 12 2023
-console.log(date.toTimeString()); // 2021:10:07 GMT+0200 (Central European Summer Time)
-console.log(date.toLocaleDateString()); // 10/12/2023
-console.log(date.toLocaleDateString('fr-FR')); // 12/10/2023
-console.log(date.toLocaleString('fr-FR')); // 12/10/2023 à 21:10:07
-*/
+const url = new URL(location.href);
+console.log(url); // Url {}
 
-console.log(date.toLocaleDateString('fr-FR', {
-    weekday: "long",
-    month: "long",
-    day: "2-digit",
-    year: "2-digit"
-})); // jeudi 12 octobre 23
+// Example with http://localhost:4000/test?sort=asc#myhash
+console.log(url.searchParams.get('sort')); // asc
+
+// The same result by another way
+const searchParams = new URLSearchParams(location.search);
+console.log(searchParams.get('sort')); // asc
+
+setTimeout(() => {
+   location.href = '/form.html';
+}, 3000);
