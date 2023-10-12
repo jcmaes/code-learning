@@ -1,15 +1,26 @@
-console.log(history); // History {}
+console.log(history);
 
-const backButton = document.querySelector('#back');
-const nextButton = document.querySelector('#next');
+let inputStateValue;
+let inputValue;
+const input = document.querySelector('#myinput');
 
-backButton.addEventListener('click', () => {
-    history.back();
+if (history.state) {
+    inputStateValue = history.state.value;
+    inputValue = inputStateValue;
+    input.value = inputValue;
+}
+
+setInterval(() => {
+    const value = input.value;
+    if (value !== inputValue) {
+        inputValue = value;
+        // history.pushState({ input: value}, '');
+        history.replaceState({ input: value}, '');
+    }
+}, 2500);
+
+window.addEventListener('popstate', (event) => {
+    console.log(event);
 });
 
-nextButton.addEventListener('click', () => {
-    history.forward()
-});
-
-// history.go(5); // = .forward x5
-// history.go(-5); // = .back x5
+console.log(history.state);
