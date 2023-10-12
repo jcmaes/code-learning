@@ -1,17 +1,8 @@
-const date = new Date();
+console.log(location);
 
-/*
-console.log(date); // Thu Oct 12 2023 21:10:07 GMT+0200 (Central European Summer Time)
-console.log(date.toDateString()); // Thu Oct 12 2023
-console.log(date.toTimeString()); // 2021:10:07 GMT+0200 (Central European Summer Time)
-console.log(date.toLocaleDateString()); // 10/12/2023
-console.log(date.toLocaleDateString('fr-FR')); // 12/10/2023
-console.log(date.toLocaleString('fr-FR')); // 12/10/2023 à 21:10:07
-*/
+// location.assign('https://dyma.fr');
+// location.replace('https://dyma.fr');
+// location.reload();
 
-console.log(date.toLocaleDateString('fr-FR', {
-    weekday: "long",
-    month: "long",
-    day: "2-digit",
-    year: "2-digit"
-})); // jeudi 12 octobre 23
+// console.log(location.toString()); // http://localhost:4000/
+// console.log(location.href); // http://localhost:4000/
