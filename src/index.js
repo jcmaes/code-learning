@@ -1,7 +1,8 @@
-import './assets/styles/styles.scss';
-import './index.scss';
+console.log(history);
 
-const articleContainerElement = document.querySelector('.article-container');
+let inputStateValue;
+let inputValue;
+const input = document.querySelector('#myinput');
 
 const createArticles = articles => {
     const articlesDOM = articles.map(article => {
@@ -56,4 +57,4 @@ const fetchArticle = async () => {
     }
 }
 
-fetchArticle();
+ fetchArticle();

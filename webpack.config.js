@@ -50,6 +50,9 @@ module.exports = {
     devServer: {
         open: false,
         static: path.resolve(__dirname, './dist'),
-        port: 4000
+        port: 4000,
+        historyApiFallback: {
+            index: 'dist/index.html'
+        }
     }
 };
