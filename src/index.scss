@@ -23,12 +23,17 @@
         cursor: pointer;
         transition: 0.2s ease-in-out;
 
+        strong {
+          color: inherit;
+        }
+
         &:hover {
           color: var(--link);
+        }
 
-          strong {
-            color: inherit;
-          }
+        &.active {
+          font-weight: 700;
+          color: var(--primary);
         }
       }
     }
