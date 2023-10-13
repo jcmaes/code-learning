@@ -93,4 +93,4 @@ const fetchArticle = async () => {
     }
 };
 
-fetchArticle();
+ fetchArticle();
