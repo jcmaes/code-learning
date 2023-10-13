@@ -3,14 +3,19 @@ import './index.scss';
 
 const articleContainerElement = document.querySelector('.article-container');
 
-const createArticles = (articles) => {
+const createArticles = articles => {
     const articlesDOM = articles.map(article => {
         const articleDom = document.createElement('div');
         articleDom.classList.add('article');
         articleDom.innerHTML = `
 <img src="${article.image}" alt="profile">
 <h2>${article.title}</h2>
-<p class="article-author">${article.author} - ${article.category}</p>
+<p class="article-author">${article.author} - ${new Date(article.createdAt).toLocaleDateString('fr-FR', {
+    weekday: 'long',
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+})}</p>
 <p class="article-content">${article.content}</p>
 <div class="article-actions">
     <button class="btn btn-danger" data-id="${article._id}">Delete</button>
@@ -31,7 +36,7 @@ const createArticles = (articles) => {
                 const response = await fetch(`https://restapi.fr/api/articles/${articleId}`, {
                     method: "DELETE"
                 });
-                const body = await response.json();
+                // const body = await response.json();
                 // console.log(body);
                 fetchArticle();
             } catch (e) {
