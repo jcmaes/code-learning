@@ -1,5 +1,6 @@
 import '../assets/styles/styles.scss';
 import './form.scss';
+import { openModal } from "../assets/javascripts/modal";
 
 const form = document.querySelector('form');
 const errorElement = document.querySelector('#errors');
@@ -10,13 +11,11 @@ let articleId;
 const initForm = async () => {
     const params = new URL(window.location.href);
     articleId = params.searchParams.get('id');
-    // console.log(articleId);
 
     if (articleId) {
         const response = await fetch(`https://restapi.fr/api/articles/${articleId}`);
         if (response < 300) {
             const article = await response.json();
-            // console.log(article);
             fillForm(article);
         }
     }
@@ -37,8 +36,11 @@ const fillForm = article => {
     content.value = article.content || '';
 };
 
-buttonCancel.addEventListener('click', () => {
-    window.location.assign('/index.html');
+buttonCancel.addEventListener('click', async () => {
+    const result = await openModal('If you cancel, you will lose your article');
+    if (result) {
+        window.location.assign('/index.html');
+    }
 });
 
 form.addEventListener('submit', async event => {

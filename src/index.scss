@@ -103,31 +103,3 @@
     }
   }
 }
-
-.modal {
-  min-inline-size: 30rem;
-  padding: 5rem;
-  text-align: center;
-  background-color: #fff;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-
-  p {
-    margin-block: 1rem 3rem;
-  }
-
-  .btn:first-of-type {
-    margin-inline-end: 0.5rem;
-  }
-
-  &__backdrop {
-    position: fixed;
-    inset: 0;
-    inline-size: 100%;
-    block-size: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-}
