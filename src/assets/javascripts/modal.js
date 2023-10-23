@@ -1,13 +1,12 @@
 const body = document.querySelector("body");
 let modalBackdrop;
 let modal;
+let cancel;
+let confirm;
 
 const createModalBackdrop = () => {
     modalBackdrop = document.createElement('div');
     modalBackdrop.classList.add('modal__backdrop');
-    modalBackdrop.addEventListener('click', () => {
-        modalBackdrop.remove();
-    });
 };
 
 const createModal = question => {
@@ -16,12 +15,13 @@ const createModal = question => {
     modal.innerHTML = `
         <p>${question}</p>
     `;
-    const cancel = document.createElement('button');
+    cancel = document.createElement('button');
     cancel.innerText = 'Cancel';
     cancel.classList.add('btn', 'btn-secondary');
-    const confirm = document.createElement('button');
+    confirm = document.createElement('button');
     confirm.innerText = 'Confirm';
     confirm.classList.add('btn', 'btn-primary');
+    modal.addEventListener('click', event => event.stopPropagation());
     modal.append(cancel, confirm);
 };
 
@@ -31,4 +31,19 @@ export function openModal(question) {
 
     modalBackdrop.append(modal);
     body.append(modalBackdrop);
+
+    return new Promise((resolve, reject) => {
+        modalBackdrop.addEventListener('click', () => {
+            resolve(false);
+            modalBackdrop.remove();
+        });
+        cancel.addEventListener('click', () => {
+            resolve(false);
+            modalBackdrop.remove();
+        });
+        confirm.addEventListener('click', () => {
+            resolve(true);
+            modalBackdrop.remove();
+        });
+    });
 }

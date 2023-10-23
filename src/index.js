@@ -56,22 +56,22 @@ const createArticles = () => {
     });
     deleteButtons.forEach( button => {
         button.addEventListener('click', async event => {
-            openModal("Are sure to want delete this article");
-            // const result = await openModal("Are sure to want delete this article");
-            // if (result === true) {
-            //     try {
-            //         const target = event.target;
-            //         const articleId = target.dataset.id;
-            //         const response = await fetch(`https://restapi.fr/api/articles/${articleId}`, {
-            //             method: "DELETE"
-            //         });
-            //         const body = await response.json();
-            //         console.log(body);
-            //         fetchArticle();
-            //     } catch (e) {
-            //         console.log('e: ', e);
-            //     }
-            // }
+            // openModal("Are sure to want delete this article");
+            const result = await openModal("Are sure to want delete this article");
+            if (result === true) {
+                try {
+                    const target = event.target;
+                    const articleId = target.dataset.id;
+                    const response = await fetch(`https://restapi.fr/api/articles/${articleId}`, {
+                        method: "DELETE"
+                    });
+                    const body = await response.json();
+                    console.log(body);
+                    fetchArticle();
+                } catch (e) {
+                    console.log('e: ', e);
+                }
+            }
         });
     });
 };
