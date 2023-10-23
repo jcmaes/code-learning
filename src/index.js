@@ -1,5 +1,6 @@
 import './assets/styles/styles.scss';
 import './index.scss';
+import { openModal } from "./assets/javascripts/modal";
 
 const articleContainerElement = document.querySelector('.article-container');
 const categoriesContainerElement = document.querySelector('.categories');
@@ -55,18 +56,22 @@ const createArticles = () => {
     });
     deleteButtons.forEach( button => {
         button.addEventListener('click', async event => {
-            try {
-                const target = event.target;
-                const articleId = target.dataset.id;
-                const response = await fetch(`https://restapi.fr/api/articles/${articleId}`, {
-                    method: "DELETE"
-                });
-                const body = await response.json();
-                console.log(body);
-                fetchArticle();
-            } catch (e) {
-                console.log('e: ', e);
-            }
+            openModal("Are sure to want delete this article");
+            // const result = await openModal("Are sure to want delete this article");
+            // if (result === true) {
+            //     try {
+            //         const target = event.target;
+            //         const articleId = target.dataset.id;
+            //         const response = await fetch(`https://restapi.fr/api/articles/${articleId}`, {
+            //             method: "DELETE"
+            //         });
+            //         const body = await response.json();
+            //         console.log(body);
+            //         fetchArticle();
+            //     } catch (e) {
+            //         console.log('e: ', e);
+            //     }
+            // }
         });
     });
 };
@@ -118,7 +123,7 @@ const createMenuCategories = () => {
 
 const fetchArticle = async () => {
     try {
-        const response = await fetch("`https://restapi.fr/api/articles?sort=ceatedAt:desc`");
+        const response = await fetch(`https://restapi.fr/api/articles?sort=createdAt:${sortBy}`);
         articles = await response.json();
         createArticles();
         createMenuCategories();
