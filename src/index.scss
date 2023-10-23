@@ -10,6 +10,17 @@
     flex: 0 0 25rem;
     padding: 0 2rem 2rem;
 
+    select {
+      inline-size: 100%;
+      margin-block-end: 2rem;
+      padding: 1rem;
+      background-color: white;
+      border: 0;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      outline: none;
+    }
+
     .categories {
       display: flex;
       flex-direction: column;
