@@ -8,9 +8,9 @@
 .btn {
   padding: 1rem 2rem;
   font-weight: 700;
+  cursor: pointer;
   border: none;
   border-radius: var(--border-radius);
-  cursor: pointer;
   transition: box-shadow 0.2s;
 
   &:hover {
@@ -46,7 +46,7 @@
   min-inline-size: 30rem;
   padding: 5rem;
   text-align: center;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 
@@ -61,11 +61,11 @@
   &__backdrop {
     position: fixed;
     inset: 0;
-    inline-size: 100%;
-    block-size: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
+    inline-size: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    block-size: 100dvh;
   }
 }

@@ -2,8 +2,8 @@
 
 .content {
   display: flex;
-  justify-content: center;
   align-items: start;
+  justify-content: center;
   padding-inline-start: 5rem;
 
   .sidebar {
@@ -12,13 +12,13 @@
 
     select {
       inline-size: 100%;
-      margin-block-end: 2rem;
       padding: 1rem;
+      margin-block-end: 2rem;
       background-color: white;
       border: 0;
       border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
       outline: none;
+      box-shadow: var(--box-shadow);
     }
 
     .categories {
@@ -51,19 +51,19 @@
   }
 
   .article-container {
-    max-inline-size: 80rem;
-    flex: 1;
-    margin: 0 0 10rem;
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 4rem;
+    max-inline-size: 80rem;
+    margin: 0 0 10rem;
 
     .article {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding-inline: 5rem;
-      background-color: #fff;
+      background-color: #ffffff;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
 
@@ -73,9 +73,9 @@
 
       img {
         inline-size: 6rem;
-        block-size: 6rem;
         margin-block-start: -4rem;
         border-radius: 50%;
+        block-size: 6rem;
       }
 
       h2 {
@@ -93,10 +93,10 @@
       }
 
       &-actions {
-        inline-size: 100%;
         display: flex;
-        justify-content: flex-end;
         gap: 2rem;
+        justify-content: flex-end;
+        inline-size: 100%;
         padding-block: 2rem;
         border-top: 1px solid var(--divider);
       }
