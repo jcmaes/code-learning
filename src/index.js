@@ -1,135 +1,60 @@
-import './assets/styles/styles.scss';
-import './index.scss';
-import { openModal } from "./assets/javascripts/modal";
+// Method 1
+const obj = {
+  key: "value",
+};
 
-const articleContainerElement = document.querySelector('.article-container');
-const categoriesContainerElement = document.querySelector('.categories');
-const selectElement = document.querySelector('select');
-let filter;
-let articles;
-let sortBy = 'desc';
+obj.key = "value2";
 
-selectElement.addEventListener('change', () => {
-    sortBy = selectElement.value;
-    fetchArticle();
+console.log(obj); // {key: "value2"}
+
+for (let key in obj) {
+  console.log(obj); // key
+}
+
+// Method 2
+const obj2 = {
+  key: "newValue",
+};
+
+obj2.key = "newValue2";
+
+console.log(Object.keys(obj2)); // ["key"]
+console.log(Object.values(obj2)); // ["newValue2"]
+console.log(Object.entries(obj2)); // [Array(2)] ["key", "newValue2"]
+
+// Method 3
+const obj3 = {
+  key: "anotherNewValue",
+};
+
+obj3.key = "anotherNewValue3";
+
+const descriptor = Object.getOwnPropertyDescriptor(obj, "key");
+
+console.log(descriptor); // {value: "", writable: true, enumerable: true, configurable: true}
+
+// Property by property
+Object.defineProperty(obj3, "key", {
+  writable: false,
 });
 
-const createArticles = () => {
-    const articlesDOM = articles
-        .filter((article) => {
-            if (filter) {
-                return article.category === filter
-            } else {
-                return true;
-            }
-        })
-        .map(article => {
-            const articleDom = document.createElement('div');
-            articleDom.classList.add('article');
-            articleDom.innerHTML = `
-<img src="${article.image}" alt="profile">
-<h2>${article.title}</h2>
-<p class="article-author">${article.author} - ${new Date(article.createdAt).toLocaleDateString('fr-FR', {
-    weekday: 'long',
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric'
-})}</p>
-<p class="article-content">${article.content}</p>
-<div class="article-actions">
-    <button class="btn btn-danger" data-id="${article._id}">Delete</button>
-    <button class="btn btn-primary" data-id="${article._id}">Edit</button>
-</div>
-`;
-            return articleDom;
-        });
-    articleContainerElement.innerHTML = '';
-    articleContainerElement.append(...articlesDOM);
-    const deleteButtons = articleContainerElement.querySelectorAll('.btn-danger');
-    const editButtons = articleContainerElement.querySelectorAll('.btn-primary');
-    editButtons.forEach(button => {
-        button.addEventListener('click', event => {
-            const target = event.target;
-            const articleId = target.dataset.id;
-            window.location.assign(`/form.html?id=${articleId}`);
-        });
-    });
-    deleteButtons.forEach( button => {
-        button.addEventListener('click', async event => {
-            // openModal("Are sure to want delete this article");
-            const result = await openModal("Are sure to want delete this article");
-            if (result === true) {
-                try {
-                    const target = event.target;
-                    const articleId = target.dataset.id;
-                    const response = await fetch(`https://restapi.fr/api/articles/${articleId}`, {
-                        method: "DELETE"
-                    });
-                    const body = await response.json();
-                    console.log(body);
-                    fetchArticle();
-                } catch (e) {
-                    console.log('e: ', e);
-                }
-            }
-        });
-    });
+// Method 4
+const obj4 = {
+  key: "value",
 };
 
-const displayMenuCategories = (categoriesArray) => {
-    const liElements = categoriesArray.map(categoryElem => {
-       const li = document.createElement('li');
-       li.innerHTML = `${categoryElem[0]} (<strong>${categoryElem[1]}</strong>)`;
-       if (categoryElem[0] === filter) {
-           li.classList.add("active");
-       }
-       li.addEventListener('click', () => {
-           if (filter === categoryElem[0]) {
-                filter = null;
-                li.classList.remove('active');
-               createArticles();
-           } else {
-               filter = categoryElem[0];
-               liElements.forEach(li => {
-                   li.classList.remove('active');
-               });
-               li.classList.add('active');
-               createArticles();
-           }
-       });
-       return li;
-    });
-    categoriesContainerElement.innerHTML = '';
-    categoriesContainerElement.append(...liElements);
-    console.log(liElements);
-};
+obj4.key = "value4";
 
-const createMenuCategories = () => {
-    const categories = articles.reduce((acc, article) => {
-        if (acc[article.category]) {
-            acc[article.category]++
-        } else {
-            acc[article.category] = 1;
-        }
-        return acc;
-    }, {});
+const descriptors = Object.getOwnPropertyDescriptors(obj4);
 
-    const categoriesArray = Object.keys(categories).map((category) => {
-        return [category, categories[category]];
-    }).sort((c1, c2) => c1[0].localeCompare(c2[0]));
-    // console.log(categoriesArray);
-    displayMenuCategories(categoriesArray);
-};
+// All properties in the same time
+Object.defineProperties(obj4, {
+  test: {
+    value: "newValue4",
+    writable: true,
+    enumerable: true,
+    configurable: true,
+  },
+});
 
-const fetchArticle = async () => {
-    try {
-        const response = await fetch(`https://restapi.fr/api/articles?sort=createdAt:${sortBy}`);
-        articles = await response.json();
-        createArticles();
-        createMenuCategories();
-    } catch (e) {
-        console.log("e:", e);
-    }
-};
-
- fetchArticle();
+console.log(descriptors); // {key: {}}
