@@ -1,48 +1,29 @@
 // Method 1
-const user = {
-  firstname: "Tintin",
-  lastname: "Milou",
-  fullname: function () {
-    return this.firstname + " " + this.lastname;
-  },
+const tesla = {
+  brand: "tesla",
+  wheels: "4",
+  hasEngine: true,
 };
 
-console.log(user.fullname());
+const renault = {
+  brand: "renault",
+  wheels: "4",
+  hasEngine: true,
+};
 
 // Method 2
-const user2 = {
-  firstname: "Bob",
-  lastname: "Bobette",
-  get fullname() {
-    return this.firstname + " " + this.lastname;
-  },
-  set fullname(value) {
-    [this.firstname, this.lastname] = value.split(" ");
-  },
-};
+function Car() {
+  this.brand = brand;
+  this.wheels = 4;
+  this.hasEngine = true;
+  this.start = () => {
+    console.log("vroum !");
+  };
+}
 
-user.fullname = "foo bar";
+const volkswagen = new Car("volkswagen");
+const ferrari = new Car("ferrari");
 
-console.log(user2.fullname);
-
-// Method 3
-const user3 = {
-  firstname: "Tom",
-  lastname: "Jerry",
-};
-
-Object.defineProperty(user, "fullname", {
-  get: function () {
-    return this.firstname + " " + this.lastname;
-  },
-  set() {
-    [this.firstname, this.lastname] = value.split(" ");
-  },
-  enumerable: true,
-  writable: true,
-});
-
-const descriptor = Object.getOwnPropertyDescriptor(user, fullname);
-
-console.log(descriptor);
-console.log(user.fullname);
+console.log(volkswagen);
+console.log(ferrari);
+ferrari.start();
