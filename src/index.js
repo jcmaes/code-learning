@@ -1,17 +1,3 @@
-// Example 1
-const vehicle = {
-  hasEngine: true,
-  start() {
-    console.log("vroum !");
-  },
-};
+const foo = {};
 
-function Car(brand) {
-  this.brand = brand;
-}
-
-Car.prototype = vehicle;
-
-const myCar = new Car("renault");
-
-console.log(myCar);
+console.log(foo);
