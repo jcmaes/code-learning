@@ -1,17 +1,17 @@
-const vehicle = {
-  hasEngine: true,
+const foo = {
+  test: 1,
 };
 
-const car = Object.create(vehicle, {
-  wheels: {
-    value: 4,
-    writable: true,
-    enumerable: true,
-    configurable: true,
-  },
-});
+console.log(Object.entries(foo));
 
-Object.setPrototypeOf(car, vehicle);
+// Object.freeze(foo);
+// delete foo.test;
 
-console.log(car);
-console.log(Object.getPrototypeOf(car));
+// Object.preventExtensions(foo);
+// foo.test = 2;
+
+foo.test = 3;
+Object.seal(foo);
+foo.test = 4;
+console.log(foo);
+delete foo.test; //Cannot delete property
