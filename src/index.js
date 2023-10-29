@@ -1,29 +1,53 @@
-// Method 1
-const tesla = {
-  brand: "tesla",
-  wheels: "4",
-  hasEngine: true,
+// Example 1
+const engine = {
+  power: 240,
 };
 
-const renault = {
-  brand: "renault",
-  wheels: "4",
+const vehicle = {
   hasEngine: true,
-};
-
-// Method 2
-function Car() {
-  this.brand = brand;
-  this.wheels = 4;
-  this.hasEngine = true;
-  this.start = () => {
+  start() {
     console.log("vroum !");
-  };
+  },
+};
+
+vehicle.__proto__ = engine;
+
+const bus = {
+  brand: "volvo",
+};
+
+bus.__proto__ = vehicle;
+
+const car = {
+  brand: "renault",
+};
+
+car.__proto__ = vehicle;
+
+console.log(car);
+console.log(car.hasEngine); // true
+car.start(); // vroum !
+console.log(vehicle.power); // 240
+console.log(car.power); // 240
+
+// Example 2
+const bicycle = {
+  hasAssistance: true,
+  go() {
+    console.log(this.hasAssistance);
+    console.log("go !");
+  },
+};
+
+const model = {
+  brand: "Trek",
+};
+
+model.__proto__ = bicycle;
+
+model.hasAssistance = false;
+
+for (let key in model) {
+  console.log(model.hasOwnProperty(key));
+  console.log(key);
 }
-
-const volkswagen = new Car("volkswagen");
-const ferrari = new Car("ferrari");
-
-console.log(volkswagen);
-console.log(ferrari);
-ferrari.start();
