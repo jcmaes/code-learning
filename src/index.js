@@ -18,10 +18,7 @@ function getTransaction() {
     name: "euro",
     amount: 123,
   };
-  debugger;
   if (!data.amount) {
-    // const e = new Error("need amount");
-    // throw e;
     throw new Error("need amount");
   }
 
