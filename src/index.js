@@ -1,82 +1,52 @@
 // Example 1
-// Old method without Class
-function Bar(name) {
-  this.name = name;
+function Vehicle() {
+  this.hasEngine = true;
 }
 
-Bar.prototype.hello = function () {
-  console.log("Hello !");
+Vehicle.prototype.stop = function () {
+  console.log("vehicle stop");
 };
 
-Bar.prototype.hi = function () {
-  console.log("Hi !");
-};
-
-const bar = new Bar("bar");
-console.log(bar); // Bar {name: "bar"}
-
-// New method with Class
-class Foo {
-  constructor(name) {
-    this.name = name;
-  }
-
-  hello() {
-    console.log("Hello !");
-  }
-
-  hi() {
-    console.log("Hi !");
-  }
+function Car() {
+  Vehicle.call(this);
+  this.wheels = 4;
 }
 
-const foo = new Foo("foo");
-console.log(foo); // Foo {name: ""foo"}
+Car.prototype = Object.create(Vehicle.prototype);
+Car.prototype.constructor = Car;
+Car.prototype.start = function () {
+  console.log("car start");
+};
+
+const car = new Car();
+console.log(car); // Car {}
 
 // Example 2
-// Old method without Class
-const Bar2 = function (name) {
-  this.name = name;
-};
-
-Bar2.prototype.hello = function () {
-  console.log("Hello !");
-};
-
-Bar2.prototype.hi = function () {
-  console.log("Hi !");
-};
-
-const bar2 = new Bar("bar2");
-console.log(bar2); // Bar {name: "bar2"}
-
-// New method with Class
-const Foo2 = class {
-  constructor(name) {
-    this.name = name;
-    // this.test = null;
+class Motorcycle {
+  constructor() {
+    this.hasEngine = true;
   }
 
-  get doubleName() {
-    return this.name + "-" + this.name;
+  start() {
+    console.log("engine start");
   }
 
-  set changeName(value) {
-    this.name = value;
+  stop() {
+    console.log("stop engine");
+  }
+}
+
+class Model extends Motorcycle {
+  constructor() {
+    super();
+    this.wheels = 2;
   }
 
-  hello() {
-    console.log("Hello !");
+  start() {
+    super.start();
+    console.log("start engine");
   }
+}
 
-  hi() {
-    console.log("Hi !");
-  }
-};
-
-const foo2 = new Foo2("foo2");
-
-// foo.changeName = "Oof";
-
-console.log(foo2.doubleName); // foo-foo
-console.log(foo2); // Foo {name: ""foo2"}
+const moto = new Model();
+console.log(moto); // Model {}
