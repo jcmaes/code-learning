@@ -1,6 +1,20 @@
 // Example 1
+
+const options = {
+  startRadio() {
+    console.log("start radio");
+  },
+  stopRadio() {
+    console.log("stop radio");
+  },
+};
+
 class Car {}
 
-const car = new car();
+Object.assign(Car.prototype, options);
 
-console.log(car instanceof Object); // true
+const car = new Car();
+
+car.startRadio();
+
+console.log(car); // start radio Car {}
