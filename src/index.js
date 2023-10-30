@@ -1,39 +1,22 @@
-// Example 1
-try {
-  const wrongjson = "{test:1}";
-  JSON.parse(wrongjson);
-} catch (e) {
-  console.error(e);
-} finally {
-  console.log("in finally");
+class validationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = this.constructor.name;
+    this.message = message;
+  }
 }
 
-try {
-  setTimeout(() => {
-    try {
-      console.log(data);
-    } catch (e) {
-      console.error(e); // ReferenceError
-    }
-  }, 2000);
-} catch (e) {
-  console.error(e); // Uncaught
-} finally {
+class ValidationAmountError extends ValidationError {
+  constructor(message) {
+    super(message);
+    this.message = message;
+  }
 }
 
-console.log("Hello !");
-
-// Example 2
-window.addEventListener("error", (e) => {
-  console.log(e);
-});
-
-getData();
-
-// Example 3
 function getTransaction() {
   const data = {
     name: "euro",
+    amount: 123,
   };
 
   if (!data.amount) {
@@ -41,14 +24,25 @@ function getTransaction() {
     // throw e;
     throw new Error("need amount");
   }
+
+  throw new Error("unexpected error");
+}
+
+function initApp() {
+  try {
+    getTransaction();
+  } catch (e) {
+    // if (e.name === "ValidationError") {
+    if (e instanceof ValidationError) {
+      console.log("you should retry");
+    } else {
+      throw e;
+    }
+  }
 }
 
 try {
-  getTransaction();
+  initApp();
 } catch (e) {
-  console.log(e);
-  console.log(e.name);
-  console.log(e.message);
-  console.log(e.stack);
   console.error(e);
 }
