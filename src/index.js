@@ -1,37 +1,17 @@
 // Example 1
-class Car {
-  constructor() {
-    this.key = false;
-    this._gas = 80;
-  }
+class ExtendedArray extends Array {
+  random() {
+    const length = this.length;
+    let i = 0;
 
-  get gas() {
-    return this._gas;
-  }
-
-  set gas(value) {
-    if (value > 0) {
-      this._gas = value;
+    while (i < length) {
+      this[i] = Math.round(Math.random() * 10);
+      i++;
     }
-  }
-
-  putKey() {
-    this.key = true;
-  }
-
-  start() {
-    console.log("car start");
-    if (this.key) {
-      this.startEngine();
-    } else {
-      console.log("should have key");
-    }
-  }
-
-  startEngine() {
-    console.log("start engine");
   }
 }
 
-const car = new Car();
-car.gas = -20;
+const array = new ExtendedArray(1, 2, 3);
+
+array.random();
+console.log(array);
