@@ -1,20 +1,54 @@
 // Example 1
+try {
+  const wrongjson = "{test:1}";
+  JSON.parse(wrongjson);
+} catch (e) {
+  console.error(e);
+} finally {
+  console.log("in finally");
+}
 
-const options = {
-  startRadio() {
-    console.log("start radio");
-  },
-  stopRadio() {
-    console.log("stop radio");
-  },
-};
+try {
+  setTimeout(() => {
+    try {
+      console.log(data);
+    } catch (e) {
+      console.error(e); // ReferenceError
+    }
+  }, 2000);
+} catch (e) {
+  console.error(e); // Uncaught
+} finally {
+}
 
-class Car {}
+console.log("Hello !");
 
-Object.assign(Car.prototype, options);
+// Example 2
+window.addEventListener("error", (e) => {
+  console.log(e);
+});
 
-const car = new Car();
+getData();
 
-car.startRadio();
+// Example 3
+function getTransaction() {
+  const data = {
+    name: "euro",
+  };
 
-console.log(car); // start radio Car {}
+  if (!data.amount) {
+    // const e = new Error("need amount");
+    // throw e;
+    throw new Error("need amount");
+  }
+}
+
+try {
+  getTransaction();
+} catch (e) {
+  console.log(e);
+  console.log(e.name);
+  console.log(e.message);
+  console.log(e.stack);
+  console.error(e);
+}
