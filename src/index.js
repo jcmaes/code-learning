@@ -6,7 +6,8 @@ const expiration = new Date(Date.now() + 15 * 1000);
 
 // document.cookie = `test3=hello3; expires=${expiration.toUTCString()}`;
 
-document.cookie = `test3=hello3; max-age=15`;
+// samesite has two values : strict or lax
+document.cookie = "samesite=lax";
 
 // const location = {
 //   country: "France",
